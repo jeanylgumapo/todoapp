@@ -41,13 +41,6 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        // $tasks=Task::create($request->all());
-        // return Inertia::render('Task/Index',['tasks'=> $tasks,]);
-        // $tasks="";
-        // $tasks=Task::create([
-        //     'name'=>$request->name
-        // ]);
-        // return Inertia::render('Task/Index',['tasks'=> $tasks,]);
         Task::create($request->all());
         return redirect()->back();
     }
@@ -88,9 +81,12 @@ class TaskController extends Controller
     }
     public function isdone(Request $request, $id)
     {
-        // $task::find($request->input('id'))->update('1');
-    //    $id= $request->input('id')
         Task::find($id)->update(['isdone' => '1']);
+        return redirect()->back();
+    }
+    public function undone(Request $request, $id)
+    {
+        Task::find($id)->update(['isdone' => '0']);
         return redirect()->back();
     }
 
