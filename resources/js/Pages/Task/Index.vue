@@ -23,7 +23,7 @@
                     <td>
                         <div class="form-check">
                                 <input v-if="task.isdone==0" class="form-check-input" type="checkbox" value="0" @click="done(task)" >
-                                <input v-else class="form-check-input" type="checkbox" value="1" checked>
+                                <input v-else class="form-check-input" type="checkbox" value="1" checked @click="undone(task)">
                             </div>
                     </td>
                     <td>
@@ -123,7 +123,10 @@ export default {
         },
     done: function (task) {
         this.$inertia.put(`/done/${task.id}`)
-        },        
+        },
+    undone: function (task) {
+        this.$inertia.put(`/undone/${task.id}`)
+        }, 
     }
 }
 </script>
