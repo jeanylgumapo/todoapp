@@ -12,4 +12,5 @@ Route::post('/task',[TaskController::class, 'store']);
 Route::delete('/task/{task}', [TaskController::class, 'destroy']);
 Route::patch('/task/{task}', [TaskController::class, 'update']);
 Route::put('/done/{id}', [TaskController::class, 'isdone']);
+Route::put('/undone/{id}', [TaskController::class, 'undone']);
 Auth::routes();
